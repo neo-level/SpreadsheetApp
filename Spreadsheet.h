@@ -37,7 +37,7 @@ public:
 	 * Gets the Id of the spreadsheet.
 	 * @return size_t the id of the spreadsheet.
 	 */
-	size_t getId() const;
+	[[nodiscard]]size_t getId() const;
 
 	friend void swap(Spreadsheet& first, Spreadsheet& second) noexcept;
 private:
@@ -49,7 +49,7 @@ private:
 	void verifyCoordinates(size_t x, size_t y) const;
 
 	size_t _width, _height{ 0 };
-	size_t _id{ 0 };
+	const size_t _id{ 0 };
 	static inline size_t _counter{ 0 };
 	SpreadsheetCell** _cells{ nullptr };
 };
