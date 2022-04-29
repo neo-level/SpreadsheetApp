@@ -3,6 +3,8 @@
 //
 
 #pragma once
+
+#include <cstddef>
 #include <string>
 #include <string_view>
 
@@ -17,18 +19,14 @@ public:
 	 * Sets value in cell.
 	 * @param inValue value to add inside the cell.
 	 */
-	void setValue(double inValue);
+	void set(double inValue);
+	void set(std::string_view  inValue);
 	/**
 	 * Gets the value from the cell.
 	 * @return double The value inside the cell.
 	 */
 	[[nodiscard]] double getValue() const;
 
-	/**
-	 * Sets string value.
-	 * @param inString the string value.
-	 */
-	void setString(std::string_view inString);
 	/**
 	 * Gets the string inside the cell.
 	 * @return string cell.

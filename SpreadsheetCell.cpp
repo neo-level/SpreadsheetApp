@@ -12,17 +12,17 @@ SpreadsheetCell::SpreadsheetCell(std::string_view initialValue)
 	: _value(stringToDouble(initialValue))
 {
 }
-void SpreadsheetCell::setValue(double inValue)
+void SpreadsheetCell::set(double inValue)
 {
 	_value = inValue;
+}
+void SpreadsheetCell::set(std::string_view inValue)
+{
+	_value = stringToDouble(inValue);
 }
 double SpreadsheetCell::getValue() const
 {
 	return _value;
-}
-void SpreadsheetCell::setString(std::string_view inString)
-{
-	_value = stringToDouble(inString);
 }
 std::string SpreadsheetCell::getString() const
 {
