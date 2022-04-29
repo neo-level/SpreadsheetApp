@@ -1,12 +1,11 @@
-#include "SpreadsheetCell.h"
+#include "Spreadsheet.h"
 
 int main()
 {
-	SpreadsheetCell myCell, anotherCell, aThirdCell;
-	myCell = anotherCell = aThirdCell;
-	myCell.operator=(anotherCell.operator=(aThirdCell));
+	Spreadsheet sheet(5, 6);
+	SpreadsheetCell& cell = sheet.getCellAt(1, 1);
 
-	SpreadsheetCell cell(4);
-	cell = cell;
+	const Spreadsheet sheet1(5, 6);
+	const SpreadsheetCell cell1 = sheet1.getCellAt(1, 1);
 	return 0;
 }
