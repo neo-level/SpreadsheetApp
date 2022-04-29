@@ -20,18 +20,26 @@ public:
 	 * @param inValue value to add inside the cell.
 	 */
 	void set(double inValue);
-	void set(std::string_view  inValue);
+	void set(std::string_view inValue);
 	/**
 	 * Gets the value from the cell.
 	 * @return double The value inside the cell.
 	 */
-	[[nodiscard]] double getValue() const;
+	[[nodiscard]] double getValue() const
+	{
+		_numberOfAccesses++;
+		return _value;
+	}
 
 	/**
 	 * Gets the string inside the cell.
 	 * @return string cell.
 	 */
-	[[nodiscard]] std::string getString() const;
+	[[nodiscard]] std::string getString() const
+	{
+		_numberOfAccesses++;
+		return doubleToString(_value);
+	}
 
 	/**
 	 * Converts double to a string
@@ -45,6 +53,8 @@ public:
 	 * @return double Variant of the string value.
 	 */
 	[[nodiscard]] double stringToDouble(std::string_view inString) const;
+
 private:
 	double _value{ 0 };
+	mutable size_t _numberOfAccesses{ 0 };
 };

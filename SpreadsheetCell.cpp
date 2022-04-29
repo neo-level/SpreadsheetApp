@@ -20,14 +20,6 @@ void SpreadsheetCell::set(std::string_view inValue)
 {
 	_value = stringToDouble(inValue);
 }
-double SpreadsheetCell::getValue() const
-{
-	return _value;
-}
-std::string SpreadsheetCell::getString() const
-{
-	return doubleToString(_value);
-}
 std::string SpreadsheetCell::doubleToString(double inValue) const
 {
 	return std::to_string(inValue);
