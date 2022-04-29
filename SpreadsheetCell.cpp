@@ -3,6 +3,7 @@
 //
 
 #include "SpreadsheetCell.h"
+#include <stdexcept>
 
 SpreadsheetCell::SpreadsheetCell(double initialValue)
 	: _value(initialValue)
