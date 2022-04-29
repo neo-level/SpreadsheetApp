@@ -3,4 +3,4 @@ project(SpreadsheetApp)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(SpreadsheetApp main.cpp SpreadsheetCell.cpp SpreadsheetCell.h Spreadsheet.cpp Spreadsheet.h)
+add_executable(SpreadsheetApp main.cpp SpreadsheetCell.cpp SpreadsheetCell.h Spreadsheet.cpp Spreadsheet.h ISpreadsheet.cpp ISpreadsheet.h)
