@@ -72,3 +72,7 @@ Spreadsheet& Spreadsheet::operator=(const Spreadsheet& rhs)
 	swap(*this, temp);
 	return *this;
 }
+size_t Spreadsheet::getId() const
+{
+	return _id;
+}
