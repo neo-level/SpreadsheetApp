@@ -12,9 +12,6 @@ public:
 	SpreadsheetCell() = default;
 	explicit SpreadsheetCell(double initialValue);
 	explicit SpreadsheetCell(std::string_view initialValue);
-	SpreadsheetCell(const SpreadsheetCell& source);
-
-	SpreadsheetCell& operator=(const SpreadsheetCell& rhs);
 
 	/**
 	 * Sets value in cell.
@@ -37,7 +34,7 @@ public:
 	 * @return string cell.
 	 */
 	[[nodiscard]] std::string getString() const;
-private:
+
 	/**
 	 * Converts double to a string
 	 * @param inValue double value to convert.
@@ -50,7 +47,6 @@ private:
 	 * @return double Variant of the string value.
 	 */
 	[[nodiscard]] double stringToDouble(std::string_view inString) const;
-
+private:
 	double _value{ 0 };
 };
-

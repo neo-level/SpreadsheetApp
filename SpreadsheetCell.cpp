@@ -12,17 +12,6 @@ SpreadsheetCell::SpreadsheetCell(std::string_view initialValue)
 	: _value(stringToDouble(initialValue))
 {
 }
-SpreadsheetCell::SpreadsheetCell(const SpreadsheetCell& source)
-	: _value(source._value)
-{
-}
-SpreadsheetCell& SpreadsheetCell::operator=(const SpreadsheetCell& rhs)
-{
-	if (this == &rhs)
-		return *this;
-	_value = rhs._value;
-	return *this;
-}
 void SpreadsheetCell::setValue(double inValue)
 {
 	_value = inValue;
