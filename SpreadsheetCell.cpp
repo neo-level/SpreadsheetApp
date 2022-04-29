@@ -29,3 +29,46 @@ double SpreadsheetCell::stringToDouble(std::string_view inString) const
 {
 	return std::strtod(inString.data(), nullptr);
 }
+SpreadsheetCell operator+(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return SpreadsheetCell(lhs.getValue() + rhs.getValue());
+}
+SpreadsheetCell operator-(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return SpreadsheetCell(lhs.getValue() - rhs.getValue());
+}
+SpreadsheetCell operator*(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return SpreadsheetCell(lhs.getValue() * rhs.getValue());
+}
+SpreadsheetCell operator/(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	if (rhs.getValue() == 0)
+		throw std::invalid_argument("Divide by zero.");
+
+	return SpreadsheetCell(lhs.getValue() / rhs.getValue());
+}
+bool operator<(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() < rhs.getValue());
+}
+bool operator<=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() <= rhs.getValue());
+}
+bool operator>(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() > rhs.getValue());
+}
+bool operator>=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() >= rhs.getValue());
+}
+bool operator==(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() == rhs.getValue());
+}
+bool operator!=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs)
+{
+	return (lhs.getValue() < rhs.getValue());
+}
