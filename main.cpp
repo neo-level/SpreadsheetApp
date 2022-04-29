@@ -1,11 +1,14 @@
 #include "Spreadsheet.h"
 
+class SpreadsheetApplication
+{
+};
 int main()
 {
-	Spreadsheet sheet(5, 6);
-	SpreadsheetCell& cell = sheet.getCellAt(1, 1);
-
-	const Spreadsheet sheet1(5, 6);
-	const SpreadsheetCell cell1 = sheet1.getCellAt(1, 1);
+	SpreadsheetApplication theApp;
+	ISpreadsheet s1(theApp);
+	ISpreadsheet s3(theApp, 5, 6);
+	ISpreadsheet s4(s3);
+	s1 = s4;
 	return 0;
 }
