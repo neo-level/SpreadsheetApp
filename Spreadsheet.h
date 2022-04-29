@@ -5,13 +5,15 @@
 #pragma once
 
 #include <cstddef>
+
+#include "ISpreadsheet.h"
 #include "SpreadsheetCell.h"
 
-class Spreadsheet
+class ISpreadsheet::Spreadsheet
 {
 public:
-	Spreadsheet(size_t width, size_t height);
-	Spreadsheet(const Spreadsheet& src);
+	Spreadsheet(const SpreadsheetApplication& theApp, size_t width, size_t height);
+	Spreadsheet(const Spreadsheet& source);
 	~Spreadsheet();
 
 	Spreadsheet& operator=(const Spreadsheet& rhs);
@@ -31,7 +33,6 @@ public:
 	 * @return SpreadsheetCell object reference.
 	 */
 	SpreadsheetCell& getCellAt(size_t x, size_t y);
-	[[nodiscard]] const SpreadsheetCell& getCellAt(size_t x, size_t y) const;
 
 	/**
 	 * Gets the Id of the spreadsheet.
@@ -39,7 +40,6 @@ public:
 	 */
 	[[nodiscard]]size_t getId() const;
 
-	friend void swap(Spreadsheet& first, Spreadsheet& second) noexcept;
 private:
 	/**
 	 * Checks if the passed coordinates are within the bounds of the sheet.
@@ -47,9 +47,11 @@ private:
 	 * @param y vertical axis.
 	 */
 	void verifyCoordinates(size_t x, size_t y) const;
+	void swap(Spreadsheet& other) noexcept;
 
-	size_t _width, _height{ 0 };
-	const size_t _id{ 0 };
+	size_t _width, _height, _id{ 0 };
 	static inline size_t _counter{ 0 };
+
 	SpreadsheetCell** _cells{ nullptr };
+	const SpreadsheetApplication& _theApp;
 };
