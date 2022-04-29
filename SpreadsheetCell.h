@@ -54,7 +54,23 @@ public:
 	 */
 	[[nodiscard]] double stringToDouble(std::string_view inString) const;
 
+	SpreadsheetCell& operator+=(const SpreadsheetCell& rhs);
+	SpreadsheetCell& operator-=(const SpreadsheetCell& rhs);
+	SpreadsheetCell& operator*=(const SpreadsheetCell& rhs);
+	SpreadsheetCell& operator/=(const SpreadsheetCell& rhs);
 private:
 	double _value{ 0 };
 	mutable size_t _numberOfAccesses{ 0 };
 };
+
+SpreadsheetCell operator+(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+SpreadsheetCell operator-(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+SpreadsheetCell operator*(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+SpreadsheetCell operator/(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+
+bool operator<(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+bool operator<=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+bool operator>(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+bool operator>=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+bool operator==(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
+bool operator!=(const SpreadsheetCell& lhs, const SpreadsheetCell& rhs);
