@@ -42,6 +42,7 @@ private:
 	 */
 	void verifyCoordinates(size_t x, size_t y) const;
 
-	size_t _width, _height{};
+	size_t _width, _height{ 0 };
+	static inline size_t _counter{ 0 };
 	SpreadsheetCell** _cells{ nullptr };
 };
