@@ -8,7 +8,7 @@
 #include "Spreadsheet.h"
 
 Spreadsheet::Spreadsheet(size_t width, size_t height)
-	: _width(width), _height(height)
+	: _width(width), _height(height), _id(_counter++)
 {
 	_cells = new SpreadsheetCell* [_width];
 	for (size_t i = 0; i < _width; i++)
